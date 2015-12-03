@@ -1,15 +1,3 @@
 #!/bin/bash
 
-./getxcode && ./getboxen && {
-	[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-	brew install mongodb
-	sudo mkdir -p /data/db
-	sudo chown -R $USER /data/db
-	brew install node
-	brew install postgres && {
-		pg_ctl -D /opt/boxen/homebrew/var/postgres -l /opt/boxen/homebrew/var/postgres/server.log start
-		psql -d template1 -f ./pg.sql
-	}
-	cp -R dotfiles/ ~/
-	cp com.apple.dock.plist ~/Library/Preferences/
-}
+./getxcode && ./getboxen && ./configure
