@@ -2,3 +2,5 @@ CREATE USER student WITH PASSWORD 'ilovetesting';
 CREATE DATABASE test1;
 CREATE DATABASE test2;
 CREATE DATABASE test3;
+CREATE DATABASE "postgresql-raw";
+CREATE DATABASE "postgresql-orm";
