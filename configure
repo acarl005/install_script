@@ -2,10 +2,12 @@
 brew install mongodb
 sudo mkdir -p /data/db
 sudo chown -R $USER /data/db
+ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 brew install node
 brew install postgres && {
-	pg_ctl -D /opt/boxen/homebrew/var/postgres -l /opt/boxen/homebrew/var/postgres/server.log start && psql -d template1 -f ./pg.sql
+	pg_ctl -D /opt/boxen/homebrew/var/postgres -l /opt/boxen/homebrew/var/postgres/server.log start
 }
+psql -d template1 -f ./pg.sql
 sudo cp -R dotfiles/ ~/
 sudo cp com.apple.dock.plist ~/Library/Preferences/
 sudo reboot
