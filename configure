@@ -2,10 +2,10 @@
 brew install mongodb
 sudo mkdir -p /data/db
 sudo chown -R $USER /data/db
-ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+brew services start mongodb
 brew install node
 brew install postgres && {
-	pg_ctl -D /opt/boxen/homebrew/var/postgres -l /opt/boxen/homebrew/var/postgres/server.log start
+	brew services start postgres
 }
 psql -d template1 -f ./pg.sql
 sudo cp -R dotfiles/ ~/
