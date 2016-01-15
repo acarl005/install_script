@@ -5,9 +5,10 @@ sudo chown -R $USER /data/db
 brew services start mongodb
 brew install node
 brew install postgres && {
-	brew services start postgres
+  brew services start postgres
+  sleep 5
+  psql -d template1 -f ./pg.sql
 }
-psql -d template1 -f ./pg.sql
 sudo cp -R dotfiles/ ~/
 sudo cp com.apple.dock.plist ~/Library/Preferences/
 sudo reboot
